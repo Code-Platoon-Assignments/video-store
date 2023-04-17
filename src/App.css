@@ -1,0 +1,19 @@
+#app_root {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+
+header {
+    text-align: center;
+    border: 3px dotted black;
+}
+
+main {
+    min-height: 690px;
+}
+
+footer {
+    text-align: center;
+    background-color: red;
+}
