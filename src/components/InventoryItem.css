@@ -1,0 +1,17 @@
+.inventory_item {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.item_title {
+    height: 50px;
+}
+
+.item_actions {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}

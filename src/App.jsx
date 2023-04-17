@@ -1,7 +1,6 @@
+import HomePage from './components/HomePage';
 import './App.css';
 import inventory from './data/inventory.json';
-
-console.log(inventory);
 
 export default function App() {
   return (
@@ -10,7 +9,7 @@ export default function App() {
         <h1>Video Store</h1>
       </header>
       <main>
-        <h1>Home Page goes here</h1>
+        <HomePage inventory={inventory} />
       </main>
       <footer>© 2023 Video Store</footer>
     </div>
