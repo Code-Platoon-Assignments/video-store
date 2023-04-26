@@ -1,9 +1,17 @@
-import "./DetailsPanel.css";
+import { Link, useParams, useOutletContext } from 'react-router-dom';
+import "./DetailsPage.css";
 
-export default function DetailsPanel(props) {
-    const { selectedFilm, checkoutOrReturnFilmById } = props;
+export default function DetailsPage() {
+    const { id } = useParams();
+
     const {
-        id,
+        inventory,
+        checkoutOrReturnFilmById
+    } = useOutletContext();
+
+    const selectedFilm = inventory.find(film => film.id === id);
+
+    const {
         copiesAvailable,
         totalAvailable,
         Title,
@@ -14,8 +22,9 @@ export default function DetailsPanel(props) {
 
     return (
         <div className="section_container">
-            <h2>Details</h2>
             <div className="basic_container_column">
+                <Link to="/">Back to home page</Link>
+                <h2>Details</h2>
                 <h3>{Title}</h3>
                 <div className="basic_container_row align_center">
                     <img src={Poster} width={200} height={300} />

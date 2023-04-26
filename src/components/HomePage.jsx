@@ -1,14 +1,9 @@
+import { useOutletContext } from "react-router-dom";
 import InventoryItem from './InventoryItem';
-import DetailsPanel from './DetailsPanel';
 import './HomePage.css';
 
-export default function HomePage(props) {
-    const {
-        inventory,
-        selectedFilm,
-        setSelectedFilmById,
-        checkoutOrReturnFilmById
-    } = props;
+export default function HomePage() {
+    const { inventory } = useOutletContext();
 
     return (
         <div className="page_container">
@@ -31,20 +26,11 @@ export default function HomePage(props) {
                                 title={Title}
                                 imgUrl={Poster}
                                 copiesAvailable={copiesAvailable}
-                                setSelectedFilmById={setSelectedFilmById}
                             />
                         )
                     })
                 }
-                <button onClick={() => setSelectedFilmById(null)}>Clear Selection</button>
             </div>
-            {/* will only render if there is a selectedFilm (not null) */}
-            {selectedFilm && (
-                <DetailsPanel
-                    selectedFilm={selectedFilm}
-                    checkoutOrReturnFilmById={checkoutOrReturnFilmById}
-                />
-            )}
         </div>
     );
 }
