@@ -16,11 +16,10 @@ export default function HomePage(props) {
             <h2>Inventory</h2>
             <div className="section_container">
                 {
+                    // inventoryItem will need to be updated once you integrate with OMDB API
                     inventory.map(inventoryItem => {
                         const {
                             id,
-                            title,
-                            imgUrl,
                             copiesAvailable,
                         } = inventoryItem;
 
@@ -28,8 +27,8 @@ export default function HomePage(props) {
                             <InventoryItem
                                 key={id}
                                 id={id}
-                                title={title}
-                                imgUrl={imgUrl}
+                                title={'DUMMY_TITLE'}
+                                imgUrl={'https://placehold.co/200x300'}
                                 copiesAvailable={copiesAvailable}
                                 setSelectedFilmById={setSelectedFilmById}
                             />
