@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import HomePage from './components/HomePage';
 import './App.css';
 import originalInventory from './data/inventory.json';
@@ -33,8 +34,25 @@ export default function App() {
     setInventory(newInventory);
   }
 
-  // you'll want a useEffect here that invokes the OMDB API
-  // Example url: https://www.omdbapi.com/?i=tt6615224&apikey=7f539340`
+  const updateInventoryById = (id, updateObj) => {
+    // create brand new copy of array, so react will know to rerender
+    const newInventory = [...inventory];
+    // can now mutate, as it's a new array anyways
+    const filmToUpdate = newInventory.find(film => film.id === id);
+    // a way to add combine all the key/val pairs from one obj into an existing obj
+    Object.assign(filmToUpdate, updateObj);
+    // finally set it to new array
+    setInventory(newInventory);
+  }
+
+  useEffect(() => {
+    for (const entry of inventory) {
+      const url = `https://www.omdbapi.com/?i=${entry.id}&apikey=${apiKey}`;
+      axios.get(url)
+        .then(response => updateInventoryById(entry.id, response.data))
+        .catch(err => console.error(err));
+    }
+  }, []);
 
   return (
     <div id="app_root">

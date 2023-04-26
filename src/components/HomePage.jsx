@@ -1,6 +1,5 @@
 import InventoryItem from './InventoryItem';
 import DetailsPanel from './DetailsPanel';
-
 import './HomePage.css';
 
 export default function HomePage(props) {
@@ -21,14 +20,16 @@ export default function HomePage(props) {
                         const {
                             id,
                             copiesAvailable,
+                            Title,
+                            Poster,
                         } = inventoryItem;
 
                         return (
                             <InventoryItem
                                 key={id}
                                 id={id}
-                                title={'DUMMY_TITLE'}
-                                imgUrl={'https://placehold.co/200x300'}
+                                title={Title}
+                                imgUrl={Poster}
                                 copiesAvailable={copiesAvailable}
                                 setSelectedFilmById={setSelectedFilmById}
                             />

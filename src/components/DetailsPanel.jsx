@@ -6,17 +6,21 @@ export default function DetailsPanel(props) {
         id,
         copiesAvailable,
         totalAvailable,
+        Title,
+        Poster,
+        Rated,
+        Plot
     } = selectedFilm;
 
     return (
         <div className="section_container">
             <h2>Details</h2>
             <div className="basic_container_column">
-                <h3>{'DUMMY_TITLE'}</h3>
+                <h3>{Title}</h3>
                 <div className="basic_container_row align_center">
-                    <img src={'https://placehold.co/200x300'} />
-                    <p>{'DUMMY_DESCRIPTION Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque deserunt dolores autem laborum delectus, nemo quas nam deleniti eligendi enim minus ratione. Molestias tempora quam debitis quae unde eos dolores.'}</p>
-                    <pre style={{ fontSize: "40px" }}>{'DUMMY_RATING'}</pre>
+                    <img src={Poster} width={200} height={300} />
+                    <p>{Plot}</p>
+                    <pre style={{ fontSize: "40px" }}>{Rated}</pre>
                 </div>
                 <div className="basic_container_column">
                     {copiesAvailable} / {totalAvailable} available
