@@ -1,9 +1,14 @@
-.title_container {
+.page_container {
+    padding: 64px;
+}
+
+.section_container {
     border: 3px solid black;
     height: fit-content;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5%;
-    padding: 0 40px;
+    padding: 36px;
+    margin: 36px 0;
 }

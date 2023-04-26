@@ -1,0 +1,15 @@
+.basic_container_column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5%;
+}
+
+.basic_container_row {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5%;
+}
+
+.align_center {
+    align-items: center;
+}
